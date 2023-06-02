@@ -124,8 +124,8 @@ namespace QuanLyQuanCafe.GUI
         private void trash_pb_Click(object sender, EventArgs e)
         {
             PictureBox pb = sender as PictureBox;
-            int dong = int.Parse(pb.Name.Split("_")[2]);
-            int doUong_id = int.Parse(danhSach_pnl.Controls[$"themDoUong_pnl_{dong}"].Controls[$"id_tBox_{dong}"].Text);
+            int dong = int.Parse(pb.Name.Split("_")[2]);            
+            int doUong_id = int.Parse(order.Rows[dong - 1].ItemArray[0].ToString());
             chiTietBUS.Xoa(int.Parse(orderIdVal_lb.Text), doUong_id);
             danhSach_pnl.Controls.Remove(danhSach_pnl.Controls[$"themDoUong_pnl_{dong}"]);            
         }
